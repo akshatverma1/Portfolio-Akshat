@@ -17,7 +17,7 @@ const projects = [
   },
   {
     title: "Meditativewings.com",
-    description: "I developed a responsive blog website featuring a clean and user-friendly interface. The platform allows users to easily create, publish, and manage blog posts. It’s designed for smooth navigation, optimized performance, and scalability, ensuring a great reading experience across all devices.",
+    description: "I developed a responsive blog website featuring a clean and user-friendly interface.",
     video: "/videos/project2.mp4",
     poster: "https://i.pinimg.com/736x/3d/dc/19/3ddc193d625e595f9ba02cd5266b7681.jpg",
     tags: ["React.js", "Node.js", "Express", "MongoDB","JavaScript",],
