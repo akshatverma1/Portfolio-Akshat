@@ -77,7 +77,7 @@ function ContactSection() {
             </motion.div>
           </div>
 
-          <motion.form
+          {/* <motion.form
             onSubmit={handleSubmit}
             className="glass-effect p-6 rounded-lg space-y-6"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -169,7 +169,7 @@ function ContactSection() {
                 <Send size={16} />
               </AnimatedButton>
             </motion.div>
-          </motion.form>
+          </motion.form> */}
         </div>
       </motion.div>
     </section>

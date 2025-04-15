@@ -1,15 +1,16 @@
 "use client"
 import { motion } from "framer-motion"
-import { Home, Github, Linkedin, Twitter, Disc } from "lucide-react"
+import { Home, Github, Linkedin, Twitter, Disc ,LaptopMinimalCheck,Laptop} from "lucide-react"
 import { Link } from "react-router-dom"
 
 function SocialLinks() {
   const links = [
     { icon: <Home size={20} />, href: "/", label: "Home" },
-    { icon: <Github size={20} />, href: "https://github.com/yourusername", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, href: "https://twitter.com/yourusername", label: "Twitter" },
-    { icon: <Disc size={20} />, href: "https://discord.com", label: "Discord" },
+    { icon: <Github size={20} />, href: "https://github.com/akshatverma1", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/akshat-verma-7baab7221/", label: "LinkedIn" },
+    { icon: <Twitter size={20} />, href: "https://x.com/Akshat1v", label: "Twitter" },
+    { icon: <Laptop size={24} />, href: "/work", label: "Work" },
+    // { icon: <Disc size={20} />, href: "https://discord.com", label: "Discord" },
   ]
 
   return (
