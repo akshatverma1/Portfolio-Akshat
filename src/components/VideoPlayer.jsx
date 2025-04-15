@@ -41,19 +41,19 @@ function VideoPlayer({ src, poster, className = "" }) {
       />
 
       <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-between">
-        <button
+        {/* <button
           onClick={togglePlay}
           className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
         >
           {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-        </button>
+        </button> */}
 
-        <button
+        {/* <button
           onClick={toggleMute}
           className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
         >
           {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-        </button>
+        </button> */}
       </div>
     </div>
   )
