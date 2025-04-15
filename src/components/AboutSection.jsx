@@ -35,7 +35,7 @@ function AboutSection() {
             </p>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             className="space-y-4"
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
@@ -64,7 +64,7 @@ function AboutSection() {
                 <p className="text-gray-400">Company Name, 2022-Present</p>
               </div>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
     </section>
