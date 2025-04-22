@@ -7,6 +7,15 @@ import VideoPlayer from "./VideoPlayer"
 
 const projects = [
   {
+    title: "Ashirwadenterprises.site",
+    description: "Precision Sheet Metal Manufacturing Specialized in laser cutting technology, powder coating, and zinc plating for superior quality components",
+    video: "/videos/project3.mp4",
+    poster: "https://i.pinimg.com/736x/39/85/8c/39858c458be94b6e091b7b11ed39535e.jpg",
+    tags: ["React.js", "Node.js", "Express", "MongoDB","Vercel"],
+    liveLink: "https://www.ashirwadenterprises.site/",
+    githubLink: "https://github.com/akshatverma1/Ashirwad_Enterprises",
+  },
+  {
     title: "Aitextify.space",
     description: "A single, AI-powered image analysis platform that helps you find insights and understand your visual content.",
     video: "F:/Portfolio/src/Assets/Aitextify.mp4",
@@ -33,6 +42,7 @@ const projects = [
     liveLink: "https://suraksha.site/",
     githubLink: "https://github.com/akshatverma1/Safety_webF",
   },
+  
 ]
 
 function ProjectsSection() {
