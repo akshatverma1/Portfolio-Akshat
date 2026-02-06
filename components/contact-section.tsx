@@ -1,9 +1,6 @@
 'use client'
 
-import React from "react"
-
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
-import { useState } from 'react'
+import React, { useState } from "react"
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -12,6 +9,8 @@ export default function ContactSection() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,13 +19,38 @@ export default function ContactSection() {
       ...formData,
       [e.target.name]: e.target.value,
     })
+    // Clear error when user starts typing
+    if (error) setError('')
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setFormData({ name: '', email: '', message: '' })
-    setTimeout(() => setSubmitted(false), 3000)
+    setIsSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch("https://portfolio-backend-dld7.vercel.app/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong. Please try again.')
+      }
+
+      setSubmitted(true)
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -132,7 +156,8 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth disabled:opacity-50"
                   placeholder="Your name"
                 />
               </div>
@@ -151,7 +176,8 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth disabled:opacity-50"
                   placeholder="your@email.com"
                 />
               </div>
@@ -170,16 +196,24 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:shadow-lg focus:shadow-primary/20 transition-smooth resize-none disabled:opacity-50"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
+              {error && (
+                <p className="text-red-500 text-sm font-medium animate-fade-in">
+                  {error}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 hover-scale transition-smooth animate-fade-up delay-4"
+                disabled={isSubmitting}
+                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 hover-scale transition-smooth animate-fade-up delay-4 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
 
               {submitted && (
