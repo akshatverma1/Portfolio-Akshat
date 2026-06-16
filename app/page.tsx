@@ -1,5 +1,6 @@
 import Header from '@/components/header'
 import HeroSection from '@/components/hero-section'
+import JaqyiSpotlight from '@/components/jaqyi-spotlight'
 import ExperienceSection from '@/components/experience-section'
 import ProjectsSection from '@/components/projects-section'
 import AchievementsSection from '@/components/achievements-section'
@@ -11,6 +12,7 @@ export default function Page() {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <JaqyiSpotlight />
       <ExperienceSection />
       <ProjectsSection />
       <AchievementsSection />

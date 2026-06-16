@@ -61,10 +61,27 @@ export default function HeroSection() {
             I'm Akshat Verma
           </h1>
           <h2 className="text-2xl lg:text-3xl font-semibold text-primary mb-6 animate-fade-up delay-1">
-            Full Stack Developer
+            Full Stack Developer & Entrepreneur
           </h2>
+
+          {/* Jaqyi Founder Badge */}
+          <a
+            href="https://jaqyi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-amber-500/40 bg-gradient-to-r from-amber-500/10 via-yellow-500/10 to-amber-500/10 hover:from-amber-500/20 hover:via-yellow-500/20 hover:to-amber-500/20 transition-smooth mb-8 animate-fade-up delay-1 group hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20"
+          >
+            <span className="text-sm font-semibold bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+              Founder @ Jaqyi.com
+            </span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+            </span>
+          </a>
+
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12 animate-fade-up delay-2">
-            Passionate about creating web applications that combine beautiful design with robust engineering. Currently focused on Next.js, React, and Node.js.
+            Passionate about creating web applications that combine beautiful design with robust engineering. Currently building Jaqyi.com and focused on Next.js, React, and Node.js.
           </p>
 
           {/* Social Media Icons */}
